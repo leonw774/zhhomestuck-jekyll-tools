@@ -1,0 +1,6 @@
+*.xml
+Gemfile
+Gemfile.lock
+*.md
+zhhomestuck.github.io/
+_posts/
