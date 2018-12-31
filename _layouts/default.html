@@ -20,14 +20,14 @@
     <div class="content">
       <div class="content-inner">
         <div class="page">
-          <div class="pagehead">
+          <div id="pagehead" class="pagehead">
             {{page.title}}
           </div>
-          <div class="pagebody">
+          <div id="pagebody" class="pagebody">
            {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
           </div>
-          <div class="pagefoot">
-            <div class="pagefooter-footer">
+          <div id="pagefoot" class="pagefoot">
+            <div id="pagefooter-footer" class="pagefooter-footer">
               <span>{{ page.path }}</span>
             </div>
             <br/>
@@ -41,7 +41,7 @@
           網站由<a href='https://github.com/zhhomestuck'>Github</a>技術提供
         </div>
       </div>
-      <div class="footer-bannerframe">
+      <div id="footer-bannerframe">
         <div>
           HOMESTUCK TRADITIONAL CHINESE TRANSLATION
         </div>

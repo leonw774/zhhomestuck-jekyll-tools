@@ -8,8 +8,8 @@
       <script scr="/Viz_AC_RunActiveContent.js"></script>
   </head>
   <body>
-    <div class='header'>
-      <span class="mspanav">
+    <div id="header" class="header">
+      <span id="mspanav" class="mspanav">
         <a href="http://zhhomestuck.github.io" style="color: #ffffff;">備份站首頁</a> |
         <a href="http://zhhomestuck.github.io/p/page_list.html" style="color: #ffffff;">備份站目錄</a> |
         <a href="http://zhhomestuck.blogspot.com" style="color: #ffffff;">Blogger主站</a> |
@@ -18,22 +18,22 @@
         <a href="../translators.html">翻譯組</a>
       </span>
     </div>
-    <div class="content">
-      <div class="content-inner">
-        <div class="page">
-          <div class="pagehead">
+    <div id="content" class="content">
+      <div id="content-inner" class="content-inner">
+        <div id="page" class="page">
+          <div id="pagehead" class="pagehead">
             {{page.title}}
           </div>
-          <div class="pagebody" markdown="0">
+          <div id="pagebody" class="pagebody" markdown="0">
            {{page.content}}
           </div>
-          <div class="pagefoot">
+          <div id="pagefoot" class="pagefoot">
             {% if page.next.url %}
-              <span style="float: left;">&gt;&nbsp;</span><a class="blog-pager-newer-link" href=".{{ page.next.url}}"> {{ page.next.title }}</a>
+              <span style="float: left;">&gt;&nbsp;</span><a id="blog-pager-newer-link-id" class="blog-pager-newer-link" href=".{{ page.next.url}}"> {{ page.next.title }}</a>
             {% endif %}
-            <div class="pagefooter-footer">
+            <div id="pagefooter-footer" class="pagefooter-footer">
               {% if page.previous.url %}
-                <a class="blog-pager-older-link" href=".{{ page.previous.url }}">上一頁</a>
+                <a id="blog-pager-older-link" class="blog-pager-older-link" href=".{{ page.previous.url }}">上一頁</a>
               {% endif %}
             </div>
             <br/>
@@ -47,18 +47,28 @@
           網站由<a href='https://github.com/zhhomestuck'>Github</a>技術提供
         </div>
       </div>
-      <div class="footer-bannerframe">
+      <div id="footer-bannerframe" class="footer-bannerframe">
         <div>
           HOMESTUCK TRADITIONAL CHINESE TRANSLATION
         </div>
       </div>
     </div>
-    <!-- Make log -->
     <script type="text/javascript">
+      // Make log
       var replaceSpoiler = document.getElementById("log-outer-outer");
       if(replaceSpoiler) {
         replaceSpoiler.innerHTML = "<div class=\"log-outer\"><div><button type=\"button\" onmouseover=\"this.sv=this.style.backgroundColor;this.style.backgroundColor=\'#777777\';\" onmouseout=\"if(this.sv)this.style.backgroundColor=this.sv;else this.style.backgroundColor=\'\';\" onclick=\"this.parentNode.parentNode.childNodes[1].style.display=\'block\';this.parentNode.style.display=\'none\';return false;\" title=\"點擊以顯示\">Show Pesterlog</button></div><div class=\"spoiler\" style=\"display:none;\"><div><button type=\"button\" onclick=\"this.parentNode.parentNode.parentNode.childNodes[0].style.display=\'block\';this.parentNode.parentNode.style.display=\'none\';return false;\" title=\"點擊以隱藏\">Hide Pesterlog</button></div><div class=\"log-inner\">" + replaceSpoiler.innerHTML + "</div></div></div><!-- LOG END -->";
       }
+      // Warning for HTTPS connection
+      var this_p_url = window.location.href;
+      var has_interact_elemment = document.getElementsByTagName("embed").length != 0 || document.getElementsByTagName("object").length != 0;
+      if(this_p_url){
+        if(/https/.test(this_p_url) && has_interact_elemment){
+          var warning_text = "<br/><span>你使用了https連線 這可能會導致部分動畫檔案無法顯示 [<a onclick='this.parentNode.style.display=\"none\";' style='color:#0000ff;'>隱藏此訊息</a>]</span>";
+          var warning_node = document.createElement("div");
+          warning_node.innerHTML = warning_text;
+          warning_node.style.fontSize = "13px";
+          document.getElementById("pagehead").appendChild(warning_node);}}
     </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-ruby -rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=^>"./blog.xml",})'
+rem ruby -rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=^>"./blog.xml",})'
 python give_layouts.py
 call jekyll b
 python p_tag_remover.py
