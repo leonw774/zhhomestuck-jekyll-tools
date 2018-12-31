@@ -18,7 +18,7 @@ for filenum, filename in enumerate(os.listdir(path)) :
         file_string = re.sub("<td>", "", file_string)
         file_string = re.sub("</td>", "", file_string)
         
-    file_string = re.sub(r"(/zhhomestuck.blogspot.tw/p/|/zhhomestuck.blogspot.com/p/)", "./", file_string)
-    file_string = re.sub(r"(/zhhomestuck.blogspot.tw/[/0-9]{8}|/zhhomestuck.blogspot.com/[/0-9]{8})", "./", file_string)
+    file_string = re.sub(r"(https?://zhhomestuck.blogspot.tw/p/|https?://zhhomestuck.blogspot.com/p/)", "./", file_string)
+    file_string = re.sub(r"(https?://zhhomestuck.blogspot.tw/[/0-9]{8}|https?://zhhomestuck.blogspot.com/[/0-9]{8})", "./", file_string)
     open(path + filename, "w", encoding = 'utf-8-sig').write(file_string)
     
