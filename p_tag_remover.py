@@ -1,12 +1,12 @@
 import io
 import os
 import re
-path = "./zhhomestuck.github.io/p/"
+path = "../zhhomestuck.github.io/p/"
 for filenum, filename in enumerate(os.listdir(path)) :
     file_string = open(path + filename, encoding = 'utf-8-sig').read()
     if filenum % 1000 == 0 : print(filenum)
-    file_string = re.sub("&lt;(?![! ])", "<", file_string)
-    file_string = re.sub("&gt;(?![!])", ">", file_string)
+    file_string = re.sub("&lt;(?![! ])", "<", file_string) # change every "&lt;" if it is NOT behind "!" or " "
+    file_string = re.sub("&gt;(?![!])", ">", file_string) # change every "&gt;" if it is NOT behind "!"
     file_string = re.sub("//end AC code", "", file_string)
     if re.search("<table>", file_string) :
         file_string = re.sub("<table>", "", file_string)
