@@ -3,7 +3,7 @@ python give_layouts.py
 call jekyll b
 
 echo removing unwanted tags
-python p_tag_remover.py
+python string_replacer.py
 
 echo copy pages...
 for /r "./pages" %%f in (*.html) do copy pages\%%~nxf ..\zhhomestuck.github.io\p

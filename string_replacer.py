@@ -7,19 +7,20 @@ for filenum, filename in enumerate(os.listdir(path)) :
     if filenum % 1000 == 0 : print(filenum)
     file_string = re.sub("&lt;(?![! ])", "<", file_string) # change every "&lt;" if it is NOT behind "!" or " "
     file_string = re.sub("&gt;(?![!])", ">", file_string) # change every "&gt;" if it is NOT behind "!"
-    file_string = re.sub("//end AC code", "", file_string)
+    file_string = file_string.replace("//end AC code", "")
+    file_string = file_string.replace("…", "...")
     if re.search("<table>", file_string) :
-        file_string = re.sub("<table>", "", file_string)
-        file_string = re.sub("</table>", "", file_string)
-        file_string = re.sub("<tbody>", "", file_string)
-        file_string = re.sub("</tbody>", "", file_string)
-        file_string = re.sub("<tr>", "", file_string)
-        file_string = re.sub("</tr>", "", file_string)
-        file_string = re.sub("<td>", "", file_string)
-        file_string = re.sub("</td>", "", file_string)
+        file_string = file_string.replace("<table>", "")
+        file_string = file_string.replace("</table>", "")
+        file_string = file_string.replace("<tbody>", "")
+        file_string = file_string.replace("</tbody>", "")
+        file_string = file_string.replace("<tr>", "")
+        file_string = file_string.replace("</tr>", "")
+        file_string = file_string.replace("<td>", "")
+        file_string = file_string.replace("</td>", "")
     
     if re.search("AC_FL_RunContent", file_string) :
-        file_string = re.sub(r" 'http://cdn.mspaintadventures.com/storyfiles", " 'https://www.homestuck.com/flash", file_string)
+        file_string = file_string.replace(r" 'http://cdn.mspaintadventures.com/storyfiles", " 'https://www.homestuck.com/flash")
     
     file_string = re.sub(r"http.+AC_RunActiveContent\.js", "../AC_RunActiveContent.js", file_string)
     file_string = re.sub(r"(https?://zhhomestuck.blogspot.tw/p/|https?://zhhomestuck.blogspot.com/p/)", "./", file_string)
