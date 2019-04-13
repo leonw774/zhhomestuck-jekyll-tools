@@ -9,15 +9,8 @@ for filenum, filename in enumerate(os.listdir(path)) :
     file_string = re.sub("&gt;(?![!])", ">", file_string) # change every "&gt;" if it is NOT behind "!"
     file_string = file_string.replace("//end AC code", "")
     file_string = file_string.replace("…", "...")
-    if re.search("<table>", file_string) :
-        file_string = file_string.replace("<table>", "")
-        file_string = file_string.replace("</table>", "")
-        file_string = file_string.replace("<tbody>", "")
-        file_string = file_string.replace("</tbody>", "")
-        file_string = file_string.replace("<tr>", "")
-        file_string = file_string.replace("</tr>", "")
-        file_string = file_string.replace("<td>", "")
-        file_string = file_string.replace("</td>", "")
+    #if re.search("<table>", file_string) :
+    #    file_string = re.sub("</?table>|</?tbody>|</?tr>|</?td>", "", file_string)
     
     if re.search("AC_FL_RunContent", file_string) :
         file_string = file_string.replace(r" 'http://cdn.mspaintadventures.com/storyfiles", " 'https://www.homestuck.com/flash")
