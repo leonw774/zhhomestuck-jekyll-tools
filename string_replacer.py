@@ -6,7 +6,7 @@ config_file = open("_config.yml", "r", encoding = "utf-8-sig")
 for line in config_file.readlines() :
     a = line.split()
     if a[0] = "destination:" :
-        path = a[1]
+        path = a[1] + '/'
 for filenum, filename in enumerate(os.listdir(path)) :
     file_string = open(path + filename, encoding = 'utf-8-sig').read()
     if filenum % 1000 == 0 : print(filenum)
