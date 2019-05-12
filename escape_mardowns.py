@@ -8,6 +8,7 @@ for filenum, filename in enumerate(os.listdir(path)) :
     yml_string = "".join(file_lines[:10])
     story_string = "".join(file_lines[10:])
     story_string = story_string.replace("*", "&#42;")
+    story_string = story_string.replace("/&#42;", "/*") #css comments
     story_string = story_string.replace("|", "&#124;")
     
     io.open(path + filename, 'w', encoding = 'utf-8', newline='\n').write(yml_string + story_string) 

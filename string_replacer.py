@@ -5,13 +5,13 @@ path = ""
 config_file = open("_config.yml", "r", encoding = "utf-8-sig")
 for line in config_file.readlines() :
     a = line.split()
-    if a[0] = "destination:" :
+    if a[0] == "destination:" :
         path = a[1] + '/'
 for filenum, filename in enumerate(os.listdir(path)) :
     file_string = open(path + filename, encoding = 'utf-8-sig').read()
     if filenum % 1000 == 0 : print(filenum)
     file_string = re.sub("&lt;(?![! ])", "<", file_string) # change every "&lt;" if it is NOT behind "!" or " "
-    file_string = re.sub("&gt;(?![!])", ">", file_string) # change every "&gt;" if it is NOT behind "!"
+    file_string = re.sub("&gt;(?![!;])", ">", file_string) # change every "&gt;" if it is NOT behind "!" or ";"
     file_string = file_string.replace("//end AC code", "")
     file_string = file_string.replace("…", "...")
     #if re.search("<table>", file_string) :
