@@ -1,6 +1,5 @@
 ruby -rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=^>"./blog.xml",})'
 
-echo make blog_raw.txt
 python make_raw_blog.py
 copy blog-raw.txt ..\zhhomestuck.github.io\backups\blog-raw.txt
 copy blog.xml ..\zhhomestuck.github.io\backups\blog.xml

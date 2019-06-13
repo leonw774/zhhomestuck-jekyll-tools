@@ -1,10 +1,17 @@
-﻿Homestuck是什麼？
+﻿Homestuck是什麼？(舊版)
 「一個男孩和他的朋友一起玩遊戲的故事。」
 -- MSPA官網 「Homestuck是一部文字、圖片、動畫、遊戲皆由美國漫畫家Andrew Hussie製作的網路漫畫。」
 -- 維基百科 
 在這裡說任何情節可能都太深入了，但重點是：它相當的複雜。
 這故事的其中一個初衷是：嘗試從平凡而單調的開始，讓讀者參與劇情，並跟原本就設計好的元素結合(就像安價那樣)，使故事能夠自然地快速成長，同時變得更大、更生動、更錯綜複雜，達到這樣的目標。注意，影片中有大量劇透
 看一下這個影片就應該可以知道上述「更生動」的意思，這故事中包含許多動畫情節，雖然不是Homestuck最常呈現的方式。大多數的頁面都是一個小圖片，可能會有不斷重複的gif動畫，或者下方加了一些文字，如果你看過了影片再看看漫畫的前面幾頁，你會懷疑你到底是不是在看同一個東西。這是 Homestuck 的第一頁這就是「一個非常平凡而單調的開始」。故事先以幾張畫的粗糙的圖作為起頭，內容是一個男孩在他家裡閒逛，然後逐漸地，故事啟程、擴展並且上演。其難以想像的程度就是，在只看過前面幾頁後，要想辦法讓影片裡所有的內容可以合理的發生。在Homestuck開始的前三年，創作速度是很快速的，作者平均一天可以製作出五頁的內容。這樣簡單求快的繪圖-上傳流程，很好地使得漫畫與讀者之間的交流保持活躍，也能使得這部擁有許多複雜情節的故事迅速推演。雖然包含了長達一個多小時的動畫和幾千張比較靜態的圖畫，它給我們的閱讀經驗事實上比較像讀書，它有著大量的角色對話。角色在經歷他們的冒險時，透過網絡跟對方聊天。這造成了一種罕見的媒體混雜，就像在看一部插圖比字多的小說，而且偶爾插圖還會變電影式的動畫，或者，一個互動式遊戲。這個故事致力使用最多元的媒體表現自身。最後，儘管Homestuck可以說一是部探索創作媒體的故事，但更重要的是，它是一個喜劇漫畫。你對這部作品的喜歡直接關聯到你是否能接受它獨特的幽默感。作品其中大量諷刺網路文化以及各種類別的遊戲，而最核心的便是它對冒險遊戲的戲仿：整部作品都是在模仿文字介面冒險遊戲，和點擊-選擇冒險遊戲(text-based and point-and-click adventure games)。這點在Homestuck的前作"Problem Sleuth"中更是明顯。也可以說，這部作品是因著對傳統冒險遊戲的熱愛而作的。
+
+
+Homestuck是什麼？
+這是一部網路漫畫。</h4>
+更精確來說，是一部以網路為媒材的獨特作品，它的組成包含漫畫、聊天記錄、GIF、遊戲、動畫和音樂。
+Homestuck的內容是什麼？
+故事講述一個男孩、他的朋友、和他們一起玩的遊戲。
 
 
 007327TC
@@ -248,6 +255,7 @@ MEENAH: )(好像現在)(還他媽不夠難一樣
 VRISKA: 我接受你的條件, 這簡直太簡單了.
 MEENAH: serket二代閉上你的賤嘴打我就是了
 CALLIE: 兩位，快住手！
+
 
 006720TC
 窖與氦之地
@@ -606,11 +614,11 @@ AA: 你來的會是屍體
 
 
 著作權聲明
-本網誌之所有人及翻譯團隊 與 Andrew Hussie、MSPaint Adventures和What Pumpkin Studio，皆無任何合作、從屬等關係。
+本網誌之所有人及翻譯團隊與所有官方人員、團隊，包括但不限於Andrew Hussie、What Pumpkin Studio和Viz Media，皆無任何合作、從屬等關係。
 我們不保證翻譯內容之品質及正確性。
 除官方圖片來源、音樂來源文件所表列之內容外，本站之文章中的所有圖片、文字、影片、Falsh檔案、角色等之著作權皆由原作者Andrew Hussie所有。
 Copyright Disclaimer
-The blog moderator and the translation team of this project are NOT affiliate with Andrew Hussie, MS Paint Adventures nor What Pumpkin Studio.
+The blog owner, moderators and the translation team of this project are NOT affiliate and NOT in cooperation with any official group, including Andrew Hussie, What Pumpkin Studio and Viz Media.
 We do not guarantee the quality and accuracy of the translated contents.
 Except those written in the official credit list, all images, texts, flash files, characters and so on are owned by the author Andrew Hussie.
 
@@ -656,7 +664,7 @@ Except those written in the official credit list, all images, texts, flash files
 就是擁有這個Blogger網誌的「網誌作者」或「網誌管理員」權限的翻譯員，請先寄電子郵件給管理員表示意願，並閱讀注意事項
 注意事項:
 一、翻譯文格式。
-p=00xxxx 標題，標題。 (空一行) 內文內文內文，內文內文內文內文內文內文內文內文內文。 (空一行) 內文內文，內文內文內文，內文內文內文內文(內文)內文內文內文內文內文內文內文內文內文內文內文內文，內文。 (空一行) (下一頁)
+(刪除)
 二、Flash和圖片中的文字的處理方式。
 如果Flash和圖片中有文字，那麼他們的純文字格式一定會出現在ReadMSPA轉錄文本裡面，最後發佈頁數時會以(包在半形括號中)，或|Log|收在"LOG"裡面|Log|的形式表現。
 三、專有名詞或特殊片語
