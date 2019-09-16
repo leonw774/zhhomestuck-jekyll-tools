@@ -20,6 +20,7 @@ for filenum, filename in enumerate(os.listdir(path)) :
     if re.search("AC_FL_RunContent", file_string) :
         file_string = file_string.replace(r" 'http://cdn.mspaintadventures.com/storyfiles", " 'https://www.homestuck.com/flash")
     
+    file_string = re.sub(r"http://cdn.mspaintadventures.com/storyfiles/hs2/", "https://www.homestuck.com/images/storyfiles/hs2/", file_string)
     file_string = re.sub(r"http.+AC_RunActiveContent\.js", "../AC_RunActiveContent.js", file_string)
     file_string = re.sub(r"(https?://zhhomestuck.blogspot.tw/p/|https?://zhhomestuck.blogspot.com/p/)", "./", file_string)
     file_string = re.sub(r"(https?://zhhomestuck.blogspot.tw/[/0-9]{8}|https?://zhhomestuck.blogspot.com/[/0-9]{8})", "./", file_string)

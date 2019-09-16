@@ -2,6 +2,5 @@
 Gemfile
 Gemfile.lock
 *.md
-zhhomestuck.github.io/
-_posts/
 blog*.txt
+_posts/

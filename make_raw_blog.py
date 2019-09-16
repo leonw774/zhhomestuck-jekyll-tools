@@ -98,6 +98,8 @@ for file_i, filename in enumerate(filename_list) :
     post_string = re.sub("&nbsp;", " ", post_string)
     post_string = re.sub("&gt;", ">", post_string)
     post_string = re.sub("&amp;", "&", post_string)
+    post_string = re.sub("&#42;", "*", post_string)
+    post_string = re.sub("&#124;", "|", post_string)
     blog_raw.write(post_string)
     blog_raw.write("\n")        
     post_string = ""

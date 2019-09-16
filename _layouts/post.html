@@ -38,6 +38,8 @@
               {% if page.previous.url %}
                 <a id="blog-pager-older-link" class="blog-pager-older-link" href=".{{ page.previous.url }}">上一頁</a>
               {% endif %}
+              |
+                <a id="official-link" href="#">官方原文</a>
             </div>
           </div>
         </div>
@@ -58,6 +60,7 @@
     <script type="text/javascript">
       makeSpoilerLog();
       checkHTTPSWarning();
+      linkOfficial();
     </script>
   </body>
 </html>
