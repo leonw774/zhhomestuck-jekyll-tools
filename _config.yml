@@ -1,5 +1,5 @@
 plugins:       [jekyll-paginate]
-exclude:       ["README", "LICENSE.md", "zhhomestuck.github.io", "pages", "*.bat", "*.cpp", "*.exe", "*.txt", "index_*.html", "*.xml", "*.py", "Gemfile*"]
+exclude:       ["README", "LICENSE.md", "flash_conversion_pages", "*.bat", "*.csv", "*.txt", "index_*.html", "*.xml", "*.py", "Gemfile*"]
 destination:   ../zhhomestuck.github.io/p
 markdown_ext:  "html,md"
 safe:          true

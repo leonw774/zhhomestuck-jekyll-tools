@@ -1,4 +1,4 @@
-ruby -rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=^>"./blog.xml",})'
+rem ruby -rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=^>"./blog.xml",})'
 
 python make_raw_blog.py
 copy blog-raw.txt ..\zhhomestuck.github.io\backups\blog-raw.txt
@@ -8,11 +8,15 @@ python give_layouts.py
 python escape_mardowns.py
 call jekyll b
 
-echo replaceing unwanted strings
 python string_replacer.py
 
-echo copy pages...
-for /r "./pages" %%f in (*.html) do copy pages\%%~nxf ..\zhhomestuck.github.io\p
+rem echo copy pages...
+rem for /r "./pages" %%f in (*.html) do copy pages\%%~nxf ..\zhhomestuck.github.io\p
+move ..\zhhomestuck.github.io\p\copyright.html ..\zhhomestuck.github.io
+move ..\zhhomestuck.github.io\p\translators.html ..\zhhomestuck.github.io
+move ..\zhhomestuck.github.io\p\whatishomestuck.html ..\zhhomestuck.github.io
+move ..\zhhomestuck.github.io\p\whatishomestuck-old.html ..\zhhomestuck.github.io
+
 
 echo make index.html
 python index_updater.py

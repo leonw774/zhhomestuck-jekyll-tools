@@ -1,20 +1,24 @@
 ﻿<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html">
-      <title>Homestuck繁體中文翻譯 - 備份站</title>
-      <!-- imports -->
-      <link href="http://zhhomestuck.github.io/favicon.ico" rel="icon" type="image/x-icon" />
-      <link rel="stylesheet" href="http://zhhomestuck.github.io/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homestuck繁體中文翻譯</title>
+    <!-- imports -->
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/main.css" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/Viz_AC_RunActiveContent.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
   </head>
   <body>
     <div id='header'>
-      <span class='mspanav'>
-        <a href="http://zhhomestuck.github.io/index.html" style="color: #ffffff;">備份站首頁</a> |
-        <a href="http://zhhomestuck.github.io/p/page_list.html" style="color: #ffffff;">備份站目錄</a> |
-        <a href="http://zhhomestuck.blogspot.com" style="color: #ffffff;">Blogger主站</a> |
-        <a href="http://www.mspaintadventures.com/">MSPA官方</a> |
+      <span  id="mspanav" class='mspanav'>
+        <a href="http://zhhomestuck.github.io" style="color: #ffffff;">Github站首頁</a> |
+        <a href="http://zhhomestuck.github.io/p/page_list.html" style="color: #ffffff;">頁面清單</a> |
+        <a href="http://zhhomestuck.blogspot.com" style="color: #ffffff;">Blogger站</a> |
+        <a href="http://www.homestuck.com/">官方首頁</a> |
         <a href="http://zhhomestuck.github.io/whatishomestuck.html">Homestuck是什麼</a> |
-        <a href="http://zhhomestuck.github.io/translators.html">翻譯組</a>
+        <a href="http://zhhomestuck.github.io/translators.html">翻譯團隊</a>
       </span>
     </div>
     <div class="content">
@@ -24,11 +28,10 @@
             {{page.title}}
           </div>
           <div id="pagebody" class="pagebody">
-           {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+            {{page.content  | remove: '<p>' | remove: '</p>' }}
           </div>
           <div id="pagefoot" class="pagefoot">
             <div id="pagefooter-footer" class="pagefooter-footer">
-              <span>{{ page.path }}</span>
             </div>
             <br/>
           </div>
@@ -47,5 +50,9 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      makeSpoilerLog();
+      checkHTTPSWarning();
+    </script>
   </body>
 </html>
