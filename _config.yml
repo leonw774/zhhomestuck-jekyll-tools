@@ -1,8 +1,13 @@
 plugins:       [jekyll-paginate]
-exclude:       ["README", "LICENSE.md", "flash_conversion_pages", "*.bat", "*.csv", "*.txt", "index_*.html", "*.xml", "*.py", "Gemfile*"]
+exclude:       ["Gemfile*", "README", "LICENSE.md", "*.bat", "*.csv", "*.txt", "*.xml", "scripts"]
 destination:   ../zhhomestuck.github.io/p
 markdown_ext:  "html,md"
 safe:          true
 permalink:     /:title.html
 encoding:      UTF-8
 paginate:      1
+
+collections:
+  pages:
+    output: true
+    permalink: /:title.html

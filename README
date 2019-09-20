@@ -3,7 +3,7 @@
 dependency:
 - python 3.5 or higher
 - ruby 2.4
-- jekyll
+- jekyll & jekyll-import
 
 make sure to put this directory under the same directory the site repository is under, like this:
 some_directory
@@ -11,4 +11,7 @@ some_directory
  |- zhhomestuck-jekyll-tools
   
 make sure blog.xml is up-to-date  
-run build.bat in Wimdows 7 or higher environment  
+
+run build.bat in Wimdows 7,8,10  
+run build.sh in Ubuntu or other Linux distribution  
+

@@ -1,3 +1,4 @@
+# encoding = utf-8
 import io
 import os
 import re
@@ -7,6 +8,7 @@ for line in config_file.readlines() :
     a = line.split()
     if a[0] == "destination:" :
         path = a[1] + '/'
+        break
 for filenum, filename in enumerate(os.listdir(path)) :
     file_string = open(path + filename, encoding = 'utf-8-sig').read()
     if filenum % 1000 == 0 : print(filenum)
@@ -20,9 +22,15 @@ for filenum, filename in enumerate(os.listdir(path)) :
     if re.search("AC_FL_RunContent", file_string) :
         file_string = file_string.replace(r" 'http://cdn.mspaintadventures.com/storyfiles", " 'https://www.homestuck.com/flash")
     
+    file_string = re.sub(r"http://zhhoemstuck.github.io", "https://zhhoemstuck.github.io", file_string)
+    # sources host on github was non-security linked, change it to security
     file_string = re.sub(r"http://cdn.mspaintadventures.com/storyfiles/hs2/", "https://www.homestuck.com/images/storyfiles/hs2/", file_string)
+    # change mpsa link to homestuck.com
     file_string = re.sub(r"http.+AC_RunActiveContent\.js", "../AC_RunActiveContent.js", file_string)
+    # redirect mpsa AC.js to our own
     file_string = re.sub(r"(https?://zhhomestuck.blogspot.tw/p/|https?://zhhomestuck.blogspot.com/p/)", "./", file_string)
+    # redirect site name
     file_string = re.sub(r"(https?://zhhomestuck.blogspot.tw/[/0-9]{8}|https?://zhhomestuck.blogspot.com/[/0-9]{8})", "./", file_string)
+    # redirect site name
     open(path + filename, "w", encoding = 'utf-8-sig').write(file_string)
     
