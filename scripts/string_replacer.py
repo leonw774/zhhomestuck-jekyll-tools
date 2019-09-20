@@ -22,7 +22,7 @@ for filenum, filename in enumerate(os.listdir(path)) :
     if re.search("AC_FL_RunContent", file_string) :
         file_string = file_string.replace(r" 'http://cdn.mspaintadventures.com/storyfiles", " 'https://www.homestuck.com/flash")
     
-    file_string = re.sub(r"http://zhhoemstuck.github.io", "https://zhhoemstuck.github.io", file_string)
+    file_string = re.sub(r"http://zhhomestuck.github.io", "https://zhhomestuck.github.io", file_string)
     # sources host on github was non-security linked, change it to security
     file_string = re.sub(r"http://cdn.mspaintadventures.com/storyfiles/hs2/", "https://www.homestuck.com/images/storyfiles/hs2/", file_string)
     # change mpsa link to homestuck.com
