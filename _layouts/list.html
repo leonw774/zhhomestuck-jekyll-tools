@@ -11,11 +11,11 @@
     <div id="header" class="header">
       <span id="mspanav" class="mspanav">
         <a href="/">Github站首頁</a> |
-        <a href="/p/page_list.html">頁面清單</a> |
+        <a href="/p/page_list">頁面清單</a> |
         <a href="http://zhhomestuck.blogspot.com">Blogger站</a> |
         <a href="http://www.homestuck.com/">官方首頁</a> |
-        <a href="/whatishomestuck.html">Homestuck是什麼</a> |
-        <a href="/translators.html">翻譯組</a>
+        <a href="/whatishomestuck">Homestuck是什麼</a> |
+        <a href="/translators">翻譯組</a>
       </span>
     </div>
     <div id="content" class="content">
@@ -31,26 +31,9 @@
               <br />
               <div style="font-size: 0.8em; text-align: left; padding: 0;">
                 特殊頁:<br />
-                {% for a_page in site.pages. %}
+                {% for a_page in site.pages %}
                 <span>{{ a_page.url }} - <a href="{{ a_page.url | prepend: '.' }}">{{ a_page.title }}</a></span><br />
                 {% endfor %}
-                <!--
-                <span><a href="./003258tc.html">003258tc.html</a></span><br />
-                <span><a href="./004629tc.html">004629tc.html</a></span><br />
-                <span><a href="./004979tc.html">004979tc.html</a></span><br />
-                <span><a href="./005221tc.html">005221tc.html</a></span><br />
-                <span><a href="./005338tc.html">005338tc.html</a></span><br />
-                <span><a href="./005595tc.html">005595tc.html</a></span><br />
-                <span><a href="./006720tc.html">006720tc.html</a></span><br />
-                <span><a href="./006725tc.html">006725tc.html</a></span><br />
-                <span><a href="./007327tc.html">007327tc.html</a></span><br />
-                <span><a href="./about-eoa5-p1.html">about-eoa5-p1.html</a></span><br />
-                <span><a href="./about-eoa5-p2.html">about-eoa5-p2.html</a></span><br />
-                <span><a href="./about-eoa5-p3.html">about-eoa5-p3.html</a></span><br />
-                <span><a href="./about-eoa5-p4.html">about-eoa5-p4.html</a></span><br />
-                <span><a href="./conversationwithaverystupidgirl.html">conversationwithaverystupidgirl.html</a></span><br />
-                <span><a href="./interview.html">interview.html</a></span><br />
-                -->
                 <br />
                 本文:<br />
                 {% for post in site.posts %}
@@ -61,11 +44,11 @@
           </div>
         </div>
         <div id="contribute" style="font: 11px Arial;">
-          <a href="http://www.homestuck.com/">Homestuck</a>的<a href="/copyright.html">
+          <a href="http://www.homestuck.com/">Homestuck</a>的<a href="/copyright">
             著作權
           </a>屬於Andrew Hussie&#12290;
           這是由讀者所製作的非官方非營利目的翻譯版本&#12290;
-          網站由<a href="https://github.com/zhhomestuck">Github</a>技術提供
+          此<a href='https://github.com/zhhomestuck'>GitHub Pages</a>使用Jekyll生成
         </div>
       </div>
       <div id="footer-bannerframe" class="footer-bannerframe">

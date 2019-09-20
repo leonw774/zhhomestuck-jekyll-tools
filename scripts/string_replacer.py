@@ -14,6 +14,7 @@ for filenum, filename in enumerate(os.listdir(path)) :
     if filenum % 1000 == 0 : print(filenum)
     file_string = re.sub("&lt;(?![! ])", "<", file_string) # change every "&lt;" if it is NOT behind "!" or " "
     file_string = re.sub("&gt;(?![!;])", ">", file_string) # change every "&gt;" if it is NOT behind "!" or ";"
+    file_string = re.sub("&amp;", "&", file_string)
     file_string = file_string.replace("//end AC code", "")
     file_string = file_string.replace("…", "...")
     #if re.search("<table>", file_string) :
