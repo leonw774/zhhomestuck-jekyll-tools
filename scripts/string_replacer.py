@@ -29,9 +29,11 @@ for filenum, filename in enumerate(os.listdir(path)) :
     # change mpsa link to homestuck.com
     file_string = re.sub(r"http.+AC_RunActiveContent\.js", "../AC_RunActiveContent.js", file_string)
     # redirect mpsa AC.js to our own
-    file_string = re.sub(r"(https?://zhhomestuck.blogspot.tw/p/|https?://zhhomestuck.blogspot.com/p/)", "./", file_string)
+    file_string = re.sub(r"https?://zhhomestuck.blogspot.(tw|com)/p/", "./", file_string)
     # redirect site name
-    file_string = re.sub(r"(https?://zhhomestuck.blogspot.tw/[/0-9]{8}|https?://zhhomestuck.blogspot.com/[/0-9]{8})", "./", file_string)
+    file_string = re.sub(r"https?://zhhomestuck.blogspot.(tw|com)/[/0-9]{8}", "./", file_string)
     # redirect site name
+    file_string = re.sub(r"\.html", "", file_string)
+    # take out file extention
     open(path + filename, "w", encoding = 'utf-8-sig').write(file_string)
     
