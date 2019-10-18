@@ -104,5 +104,5 @@ for file_i, filename in enumerate(filename_list) :
     blog_raw.write("\n")        
     post_string = ""
 
-blog_raw.write(open("blog-nonposts.txt", 'r', encoding = 'utf-8-sig').read())
+blog_raw.write(open("blog-pages.txt", 'r', encoding = 'utf-8-sig').read())
 blog_raw.close()

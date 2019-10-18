@@ -5,7 +5,7 @@ copy blog-raw.txt ..\zhhomestuck.github.io\backups\blog-raw.txt
 copy blog.xml ..\zhhomestuck.github.io\backups\blog.xml
 
 python scripts/give_layouts.py
-python scripts/escape_mardowns.py
+python scripts/escape_markdowns.py
 call jekyll b
 
 python scripts/string_replacer.py
@@ -21,4 +21,3 @@ echo update index.html
 python scripts/index_updater.py
 
 echo done.
-pause
