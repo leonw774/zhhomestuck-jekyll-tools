@@ -9,15 +9,15 @@ python scripts/escape_markdowns.py
 call jekyll b
 
 python scripts/string_replacer.py
-
-move ..\zhhomestuck.github.io\p\copyright.html ..\zhhomestuck.github.io
-move ..\zhhomestuck.github.io\p\translators.html ..\zhhomestuck.github.io
-move ..\zhhomestuck.github.io\p\whatishomestuck.html ..\zhhomestuck.github.io
-move ..\zhhomestuck.github.io\p\whatishomestuck-old.html ..\zhhomestuck.github.io
-move ..\zhhomestuck.github.io\p\index.html ..\zhhomestuck.github.io
-move ..\zhhomestuck.github.io\p\404.html ..\zhhomestuck.github.io
-
-echo update index.html
 python scripts/index_updater.py
+
+cd ..\zhhomestuck.github.io\p
+
+move copyright.html ..
+move translators.html ..
+move whatishomestuck.html ..
+move whatishomestuck-old.html ..
+move index.html
+move 404.html ..
 
 echo done.
