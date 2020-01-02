@@ -10,6 +10,7 @@ call jekyll b
 
 python scripts/string_replacer.py
 python scripts/index_updater.py
+python scripts/write_flash_index.py
 
 cd ..\zhhomestuck.github.io\p
 
@@ -17,7 +18,7 @@ move copyright.html ..
 move translators.html ..
 move whatishomestuck.html ..
 move whatishomestuck-old.html ..
-move index.html
+move index.html ..
 move 404.html ..
 
 echo done.
