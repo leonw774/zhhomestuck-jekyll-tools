@@ -1,6 +1,6 @@
 import os
 import re
-
+print("make blog-raw.txt")
 postpath = "_posts/"
 filename_list = []
 for file in os.listdir(postpath) :
@@ -87,7 +87,6 @@ def tag_remover(post_string) :
 blog_raw = open("blog-raw.txt",  'w+',  encoding = 'utf-8-sig')
 post_string = ""
 for file_i, filename in enumerate(filename_list) :
-    if file_i % 1000 == 0 : print(file_i)
     old_file_lines = open("_posts/" + filename, 'r', encoding = 'utf-8-sig').readlines()
     # get title
     new_lines = [old_file_lines[2][7:]]

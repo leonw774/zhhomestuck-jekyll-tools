@@ -1,6 +1,7 @@
 import os
 import io
 import re
+print("give layouts in _posts")
 path = "./_posts/"
 tags = ["s", "trickster", "x2combo"]
 layoutname = ["post_s", "post_trickster", "post_x2combo"]

@@ -21,4 +21,4 @@ move whatishomestuck-old.html ..
 move index.html ..
 move 404.html ..
 
-echo done.
+echo "finished updating site"

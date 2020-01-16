@@ -2,6 +2,7 @@
 import io
 import os
 import re
+print("write flash/index.html")
 path = ""
 config_file = open("_config.yml", "r", encoding = "utf-8-sig")
 for line in config_file.readlines() :

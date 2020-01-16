@@ -1,8 +1,7 @@
 ﻿<html>
 {% include head.html %}
   <body>
-    <div class="header">
-      {% include navbar.html %}
+    <div class="header">{% include navbar.html %}
     </div>
     <div class="content">
       <div class="content-inner">
@@ -16,15 +15,11 @@
               {{page.content}}<br />
               <br />
               <div style="font-size: 0.8em; text-align: left; padding: 0;">
-                特殊頁:<br />
-                {% for s_page in site.pages %}
-                <span>{{ s_page.url }} - <a href="{{ s_page.url | prepend: '.' }}">{{ s_page.title }}</a></span><br />
-                {% endfor %}
-                <br />
-                本文:<br />
-                {% for post in site.posts %}
-                <span>{{ post.url }} - <a href="{{ post.url | prepend: '.' }}">{{ post.title }}</a></span><br />
-                {% endfor %}
+特殊頁:<br />
+{% for s_page in site.pages %} {{ s_page.url }} - <a href="{{ s_page.url | prepend: '.' }}">{{ s_page.title }}</a><br /> {% endfor %}
+<br />
+本文:<br />
+{% for post in site.posts %} {{ post.url }} - <a href="{{ post.url | prepend: '.' }}">{{ post.title }}</a><br /> {% endfor %}
               </div>
             </div>
           </div>

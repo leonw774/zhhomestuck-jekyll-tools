@@ -1,9 +1,9 @@
 import os
 import io
 import re
+print("escape markdowns...")
 path = "./_posts/"
 for filenum, filename in enumerate(os.listdir(path)) :
-    if filenum % 1000 == 0 : print(filenum)
     file_lines = open(path + filename, "r", encoding = 'utf-8').readlines()
     yml_string = "".join(file_lines[:10])
     story_string = "".join(file_lines[10:])
