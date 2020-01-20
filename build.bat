@@ -1,4 +1,4 @@
-ruby -rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=^>"./blog.xml",})'
+ruby -r rubygems -e 'require "jekyll-import"; JekyllImport::Importers::Blogger.run({"source"=^>"blog.xml","no-blogger-info"=^>true,"replace-internal-link"=^>false})'
 
 python scripts/make_raw_blog.py
 copy blog-raw.txt ..\zhhomestuck.github.io\backups\blog-raw.txt
@@ -6,7 +6,7 @@ copy blog.xml ..\zhhomestuck.github.io\backups\blog.xml
 
 python scripts/give_layouts.py
 python scripts/escape_markdowns.py
-call jekyll b
+call bundle exec jekyll b
 
 python scripts/string_replacer.py
 python scripts/index_updater.py

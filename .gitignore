@@ -1,6 +1,2 @@
-*.xml
-Gemfile
-Gemfile.lock
-*.md
-blog*.txt
+blog*
 _posts/

@@ -2,106 +2,87 @@ import os
 import re
 print("make blog-raw.txt")
 postpath = "_posts/"
-filename_list = []
-for file in os.listdir(postpath) :
-    filename_list.append(file)
-filename_list = sorted(filename_list)
+pagepath = "_pages/"
 
-def tag_remover(post_string) :
-    temp = ""
-    result = ""
-    is_ignored = False
+def strip_xml_tag(content_string):
+    content_string += "\n"
+    content_string = re.sub(r"(<br>)|(<br/>)|(<br />)|(</br>)", "\n", content_string)
     
-    for c in post_string :
-        if (c == '\t' or c == '\n' or c == '\r') :
-            continue
-        elif (c == ' ') :
-            if (len(temp) == 0) :
-                if (result.endswith(' ') or result.endswith('\n')) :
-                    continue
-            elif temp.endswith(' ') :
-                continue                
-        
-        if not is_ignored :
-            if (c == '<') :
-                if ("AC_FL" not in temp
-                and "Show" not in temp
-                and "Hide" not in temp
-                and "\'/>" not in temp
-                and "title" not in temp
-                and ";}" not in temp
-                and "document" not in temp
-                ) :
-                    result += temp
-                is_ignored = True
-                temp = ""
-            else :
-                temp += c;
-                if (temp.find("&lt;") != -1) :
-                    # this could be in context, so is treated more carefully
-                    # nepeta your quirk is bothering me
-                    # also, if &lt; comes before nbsp, equa, amp or |, do not ignore. 
-                    if (":33 &lt;" in temp
-                        or "&lt; " in temp
-                        or "&lt;=" in temp
-                        or "&lt;&" in temp
-                        or "&lt;|" in temp
-                    ) :
-                        temp = re.sub("\&lt;", "<", temp)
-                        result += temp
-                        is_ignored = False
-                    else :
-                        if ("AC_FL" not in temp
-                        and "Show" not in temp
-                        and "Hide" not in temp
-                        and "\'/>" not in temp
-                        and "title" not in temp
-                        and ";}" not in temp
-                        and "document" not in temp
-                        ) :
-                            temp = re.sub("\&lt;", "", temp)
-                            result += temp
-                        is_ignored = True
-                    temp = ""
-        #end if not is_ignored
-        else : #is_ignored
-            temp += c
-            if (c == '>') :
-                there_is_br = temp.endswith("br />") or temp.endswith("br/>") or temp.endswith("br>")
-                # 3 diffent types of br tag :/
-                if (there_is_br and not result.endswith('\n')) :
-                    result += "\n"
-                is_ignored = False
-                temp = ""
-            elif (len(temp) >= 5 and "&gt;" in temp[len(temp) - 5:]) :
-                if (there_is_br and not result.endswith('\n')) :
-                    result += "\n"
-                is_ignored = False
-                temp = ""
-        #end else (is_ignored)
-    # end for c in post_string
-    if not result.endswith('\n') : result += '\n'
-    return result
-# end def tag_remover
+    # remove non-displayed HTML elements
+    content_string = re.sub(r"<!--(?:(?!<!--|-->)[\S\s])*-->", "", content_string)
+    content_string = re.sub(r"<script(?:(?!<script|</script>)[\S\s])*</script>", "", content_string)
+    content_string = re.sub(r"<style(?:(?!<style|</style>)[\S\s])*</style>", "", content_string)
+    content_string = re.sub(r"<button(?:(?!<button|</button>)[\S\s])*</button>", "", content_string)
+    
+    # remove XML tags
+    content_string = re.sub(r"<[^<^>]+>", "", content_string)
+    
+    content_string = re.sub(r"\n[\s]+", "\n", content_string)
+    content_string = re.sub(r" +", " ", content_string)
+    return content_string
 
-blog_raw = open("blog-raw.txt",  'w+',  encoding = 'utf-8-sig')
-post_string = ""
-for file_i, filename in enumerate(filename_list) :
-    old_file_lines = open("_posts/" + filename, 'r', encoding = 'utf-8-sig').readlines()
-    # get title
-    new_lines = [old_file_lines[2][7:]]
-    new_lines += old_file_lines[11:]
-    for new_l in new_lines :
-        post_string += new_l
-    post_string = tag_remover(post_string)
-    post_string = re.sub("&nbsp;", " ", post_string)
-    post_string = re.sub("&gt;", ">", post_string)
-    post_string = re.sub("&amp;", "&", post_string)
-    post_string = re.sub("&#42;", "*", post_string)
-    post_string = re.sub("&#124;", "|", post_string)
-    blog_raw.write(post_string)
-    blog_raw.write("\n")        
-    post_string = ""
+replace_dict = {
+"&nbsp;" : " ",
+"&gt;" : ">",
+"&lt;" : "<",
+"&amp;" : "&",
+"&#42;" : "*",
+"&#124;" : "|",
+"&#65292;" : "，",
+"&#12290;" : "。",
+"&#65281;" : "！",
+"&#65311;" : "？",
+"&#12300;" : "「",
+"&#12301;" : "」",
+}
 
+postname_list = sorted(list(os.listdir(postpath)))
+content_string = ""
+
+blog_raw = open("blog-raw.txt", 'w+', encoding = 'utf-8-sig')
+for file_i, filename in enumerate(postname_list):
+    old_file_lines = open(postpath + filename, 'r', encoding = 'utf-8-sig').readlines()[1:]
+    
+    # get title & find the end of front matter then remove front matter
+    new_lines = []
+    end_front_mat = 0
+    for id, line in enumerate(old_file_lines):
+        if "title:" in line:
+            new_lines.append(old_file_lines[id][7:])
+        if line == "---\n":
+            end_front_mat = id+1
+    new_lines.extend(old_file_lines[end_front_mat:])
+    
+    content_string = "".join(new_lines)
+    content_string = strip_xml_tag(content_string)
+    for key in replace_dict.keys():
+        content_string = re.sub(key, replace_dict[key], content_string)
+    blog_raw.write(content_string)
+    blog_raw.write("\n")
+
+pagename_list = list(os.listdir(pagepath))
+
+blog_pages = open("blog-pages.txt", 'w+', encoding = 'utf-8-sig')
+for file_i, filename in enumerate(pagename_list):
+    old_file_lines = open(pagepath + filename, 'r', encoding = 'utf-8-sig').readlines()[1:]
+    
+    # get title & find the end of front matter then remove front matter
+    new_lines = []
+    end_front_mat = 0
+    for id, line in enumerate(old_file_lines):
+        if "title:" in line:
+            new_lines.append(old_file_lines[id][7:])
+        if line == "---\n":
+            end_front_mat = id+1
+    new_lines.extend(old_file_lines[end_front_mat:])
+
+    content_string = "".join(new_lines)
+    content_string = tag_remover(content_string)
+    for key in replace_dict.keys():
+        content_string = re.sub(key, replace_dict[key], content_string)
+    blog_pages.write(content_string)
+    blog_pages.write("\n")
+
+blog_pages.close()
 blog_raw.write(open("blog-pages.txt", 'r', encoding = 'utf-8-sig').read())
 blog_raw.close()
