@@ -17,6 +17,10 @@ for filenum, filename in enumerate(os.listdir(path)) :
     file_string = re.sub("&amp;", "&", file_string)
     file_string = file_string.replace("//end AC code", "")
     file_string = file_string.replace("…", "...")
+    
+    # replace misused id attr
+    file_string = file_string.replace("<span id=\"note\"", "<span class=\"note\"")
+    
     #if re.search("<table>", file_string) :
     #    file_string = re.sub("</?table>|</?tbody>|</?tr>|</?td>", "", file_string)
     
