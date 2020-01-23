@@ -3,7 +3,7 @@
 dependency:
 - python >=3.5
 - ruby >=2.1
-- jekyll 3.6 & jekyll-import & jekyll-paginate
+- jekyll ~> 4.0.0 & jekyll-import & jekyll-paginate
 
 make sure to put this directory under the same directory the site repository is, like this:
 some_directory
