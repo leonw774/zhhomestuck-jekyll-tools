@@ -10,7 +10,7 @@
             {{page.title}}
           </div>
           <div class="pagebody" markdown="0">
-           {{page.content  | remove: '<p>' | remove: '</p>' }}
+            {{page.content | remove: '<p>' | remove: '</p>'}}
           </div>
           <div class="pagefoot">
             {% if page.next.url %}
