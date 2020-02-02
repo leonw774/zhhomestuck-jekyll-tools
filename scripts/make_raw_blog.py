@@ -77,7 +77,7 @@ for file_i, filename in enumerate(pagename_list):
     new_lines.extend(old_file_lines[end_front_mat:])
 
     content_string = "".join(new_lines)
-    content_string = tag_remover(content_string)
+    content_string = strip_xml_tag(content_string)
     for key in replace_dict.keys():
         content_string = re.sub(key, replace_dict[key], content_string)
     blog_pages.write(content_string)
