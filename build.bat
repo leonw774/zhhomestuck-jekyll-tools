@@ -6,7 +6,7 @@ copy blog.xml ..\zhhomestuck.github.io\backups\blog.xml
 
 python scripts/give_layouts.py
 python scripts/escape_markdowns.py
-call bundle exec jekyll b
+call bundle exec jekyll build
 
 python scripts/string_replacer.py
 python scripts/index_updater.py
