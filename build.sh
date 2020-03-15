@@ -1,15 +1,13 @@
 #!/bin/bash
 ruby -r rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=>"./blog.xml",})'
 
-python3 scripts/make_raw_blog.py
+python3 scripts/preprocess.py
 cp blog-raw.txt ../zhhomestuck.github.io/backups/blog-raw.txt
 cp blog.xml ../zhhomestuck.github.io/backups/blog.xml
 
-python3 scripts/give_layouts.py
-python3 scripts/escape_markdowns.py
-bundle exec jekyll build 
+bundle exec jekyll build
 
-python3 scripts/string_replacer.py
+python3 scripts/postprocess.py
 python3 scripts/index_updater.py
 python3 scripts/write_flash_index.py
 
@@ -22,6 +20,7 @@ mv ./whatishomestuck-old.html ..
 mv ./index.html ..
 mv ./404.html ..
 
+cd ../../zhhomestuck-jekyll-tools
 echo "finished updating site"
 
 

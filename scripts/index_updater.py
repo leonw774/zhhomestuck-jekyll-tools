@@ -27,10 +27,10 @@ with open("_posts/"+update_list[0], "r", encoding = "utf-8-sig") as f:
             update_page_title = line[7:-1]
             break
 
-file_content = file_content.replace("update_date", update_date)
-file_content = file_content.replace("update_link", update_page_link)
-file_content = file_content.replace("update_page_title", update_page_title)
-file_content = file_content.replace("update_page_num", str(len(update_list)))
+file_content = file_content.replace("update_date", update_date) \
+                           .replace("update_link", update_page_link) \
+                           .replace("update_page_title", update_page_title) \
+                           .replace("update_page_num", str(len(update_list)))
 
 with open(file_path, "w+", encoding = "utf-8-sig") as f :
     f.write(file_content)
