@@ -1,15 +1,15 @@
 #!/bin/bash
 ruby -r rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=>"./blog.xml",})'
 
-python3 scripts/preprocess.py
+python3 ./scripts/preprocess.py
 cp blog-raw.txt ../zhhomestuck.github.io/backups/blog-raw.txt
 cp blog.xml ../zhhomestuck.github.io/backups/blog.xml
 
-bundle exec jekyll build
+jekyll build
 
-python3 scripts/postprocess.py
-python3 scripts/index_updater.py
-python3 scripts/write_flash_index.py
+python3 ./scripts/postprocess.py
+python3 ./scripts/index_updater.py
+python3 ./scripts/write_flash_index.py
 
 cd ../zhhomestuck.github.io/p
 
