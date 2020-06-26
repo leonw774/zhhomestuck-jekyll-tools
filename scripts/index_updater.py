@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-print("update index.html")
+
 try:
     file_path = "../zhhomestuck.github.io/p/index.html"
     file = open(file_path, "r", encoding = "utf-8-sig")
@@ -13,11 +13,10 @@ now_date = datetime.now()
 file_content = file_content.replace("now_date", now_date.strftime("%Y-%m-%d"))
 file.close
 
-pagename_list = os.listdir("_posts")
+pagename_list = sorted(os.listdir("_posts"))
 
 update_date = pagename_list[-1][:10]
 update_list = [x for x in pagename_list if x[:10]==update_date]
-update_list.sort()
 update_page_link = "/p/" + update_list[0][11:17]
 
 update_page_title = ""
@@ -34,3 +33,4 @@ file_content = file_content.replace("update_date", update_date) \
 
 with open(file_path, "w+", encoding = "utf-8-sig") as f :
     f.write(file_content)
+print("updated index.html")
