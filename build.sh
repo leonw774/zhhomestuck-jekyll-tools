@@ -1,5 +1,5 @@
 #!/bin/bash
-ruby -r rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=>"./blog.xml",})'
+ruby -r rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=>"./blog.xml","no-blogger-info"=>true,"replace-internal-link"=>false})'
 
 python3 scripts/preprocess.py
 cp blog-raw.txt ../zhhomestuck.github.io/backups/blog-raw.txt

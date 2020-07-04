@@ -68,21 +68,21 @@ def make_raw_blog():
 
 def give_layouts():
     print("give layouts in _posts")
-    tags = ["s", "trickster", "x2combo"]
-    layoutname = ["post_s", "post_trickster", "post_x2combo"]
+    tags = ["s", "sbahj", "trickster", "x2combo"]
+    layoutname = ["post_s", "post_sbahj", "post_trickster", "post_x2combo"]
     for filename in POST_LIST :
         file_string = io.open(POSTPATH+filename, "r", encoding = 'utf-8').read()
         #if re.search("- sbahj", file_string) :
         #    continue
         for index, tag in enumerate(tags) :
-            if re.search("- "+tag, file_string):
+            if re.search("- "+tag+"\n", file_string):
                 suffix = ""
                 if tag == "x2combo":
                     if int(filename[11:17]) % 2 == 0:
                         suffix = "_left"
                     else:
                         suffix = "_right"
-                file_string = re.sub("layout: post\n", "layout: "+layoutname[index]+suffix+"\n", file_string)
+                file_string = re.sub("layout: \w+\n", "layout: "+layoutname[index]+suffix+"\n", file_string)
                 io.open(POSTPATH+filename, 'w', encoding='utf-8-sig', newline='\n').write(file_string)
 
 def escape_markdowns():       
@@ -124,10 +124,7 @@ def replace_strings():
         file_string = re.sub(r"http.+AC_RunActiveContent\.js\"", "../AC_RunActiveContent.js\"", file_string)
         
         # redirect site name
-        file_string = re.sub(r"https?://zhhomestuck.blogspot.(tw|com)/p/", "./", file_string)
-        
-        # redirect site name
-        file_string = re.sub(r"https?://zhhomestuck.blogspot.(tw|com)/[/0-9]{8}", "./", file_string)
+        file_string = re.sub(r"https?://zhhomestuck.blogspot.(tw|com)/(p|[/0-9]{7})/", "./", file_string)
         
         io.open(POSTPATH+filename, "w", encoding='utf-8', newline='\n').write(file_string)
 

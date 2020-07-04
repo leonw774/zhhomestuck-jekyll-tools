@@ -1,6 +1,6 @@
 ﻿<html>
 {% include head.html %}
-  <body>
+  <body class="sbahj">
     <div class="header">{% include navbar.html %}
     </div>
     <div class="content">
@@ -14,7 +14,7 @@
           </div>
           <div class="pagefoot">
             {% if page.next.url %}
-              <span style="float: left;">&gt;&nbsp;</span><a id="blog-pager-newer-link-id" class="blog-pager-newer-link" href=".{{ page.next.url}}"> {{page.next.title}}</a>
+              <span style="float: left;">&gt;&nbsp;</span><a id="blog-pager-newer-link-id" class="blog-pager-newer-link" href=".{{ page.next.url}}"> {{ page.next.title }}</a>
             {% endif %}
             <div id="pff" class="pagefooter-footer">
               {% if page.previous.url %}
