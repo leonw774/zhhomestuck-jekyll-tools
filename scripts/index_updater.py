@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-
+print("updating index.html...")
 try:
     file_path = "../zhhomestuck.github.io/p/index.html"
     file = open(file_path, "r", encoding = "utf-8-sig")
@@ -33,4 +33,3 @@ file_content = file_content.replace("update_date", update_date) \
 
 with open(file_path, "w+", encoding = "utf-8-sig") as f :
     f.write(file_content)
-print("updated index.html")
