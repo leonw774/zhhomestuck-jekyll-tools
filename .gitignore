@@ -1,4 +1,5 @@
 .jekyll-metadata
 Gemfile*
-blog*
 _posts/
+blog.xml
+blog-raw.txt

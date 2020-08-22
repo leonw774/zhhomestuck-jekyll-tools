@@ -5,7 +5,7 @@ python3 ./scripts/preprocess.py
 cp blog-raw.txt ../zhhomestuck.github.io/backups/blog-raw.txt
 cp blog.xml ../zhhomestuck.github.io/backups/blog.xml
 
-jekyll build
+bundle exec jekyll build
 
 python3 ./scripts/postprocess.py
 python3 ./scripts/index_updater.py
