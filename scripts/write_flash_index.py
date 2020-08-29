@@ -12,7 +12,7 @@ for line in config_file.readlines() :
         break
 index_page = open(path+"index.html", "w", encoding = "utf-8-sig")
 index_page.write("<html><body><ul>")
-for filenum, filename in enumerate(os.listdir(path)) :
+for filenum, filename in enumerate(sorted(os.listdir(path))) :
     if filename == "index.html": continue
     index_page.write("<li><a href=\""+filename+"\">"+filename+"</a></li>")
 index_page.write("</ul></body></html>")

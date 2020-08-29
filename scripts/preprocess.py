@@ -6,8 +6,7 @@ POSTPATH = "_posts/"
 PAGEPATH = "_pages/"
 POST_LIST = list(os.listdir(POSTPATH))
 PAGE_LIST = list(os.listdir(PAGEPATH))
-
-COMBINED_FILEPATH_LIST = [POSTPATH+n for n in sorted(POST_LIST)]+[PAGEPATH+n for n in sorted(PAGE_LIST)]
+COMBINED_FILEPATH_LIST = [POSTPATH+n for n in sorted(POST_LIST)] + [PAGEPATH+n for n in sorted(PAGE_LIST)]
 
 def strip_xml_tag(string):
     string += "\n"
@@ -26,8 +25,8 @@ def strip_xml_tag(string):
     string = re.sub(r" +", " ", string)
     return string
 
-def make_raw_blog():
-    print("make blog-raw.txt")
+def make_plain_blog():
+    print("making blog-plain.txt...")
     replace_dict = {
     "&nbsp;" : " ",
     "&gt;" : ">",
@@ -43,31 +42,46 @@ def make_raw_blog():
     "&#12301;" : "」",
     }
     
+    transcript_page_list = []
+    
     content_string = ""
-    blog_raw = io.open("blog-raw.txt", 'w+', encoding='utf-8')
+    blog_plain = io.open("blog-plain.txt", 'w+', encoding='utf-8')
     for filepath in COMBINED_FILEPATH_LIST:
-        old_file_lines = io.open(filepath, 'r', encoding='utf-8').readlines()[1:]
-        
+        if filepath in transcript_page_list:
+            break
+        file_lines = io.open(filepath, 'r', encoding='utf-8').readlines()[1:]
         # get title & find the end of front matter then remove front matter
-        new_lines = []
+        title_line = ""
+        tidied_lines = []
         end_front_mat = 0
-        for id, line in enumerate(old_file_lines):
+        for i, line in enumerate(file_lines):
             if "title:" in line:
-                new_lines.append(old_file_lines[id][7:])
+                title_line = file_lines[i][7:]
             if line == "---\n":
-                end_front_mat = id+1
-        new_lines.extend(old_file_lines[end_front_mat:])
+                end_front_mat = i+1
         
-        content_string = "".join(new_lines)
+        content_string = "".join(file_lines[end_front_mat:])
+        # check if it is game; true then use page content
+        if "純文字版本" in content_string:
+            for name in PAGE_LIST:
+                if name in content_string:
+                    page_lines = io.open(PAGEPATH+name, 'r', encoding='utf-8').readlines()[6:]
+                    content_string = title_line + "".join(page_lines)
+                    transcript_page_list.append(PAGEPATH+name)
+                    break
+        else:
+            content_string = title_line + content_string
+        
         content_string = strip_xml_tag(content_string)
         for key in replace_dict.keys():
             content_string = re.sub(key, replace_dict[key], content_string)
-        blog_raw.write(content_string)
-        blog_raw.write("\n")
-    blog_raw.close()
+        blog_plain.write(content_string)
+        blog_plain.write("\n")
+    blog_plain.close()
+# end def make_raw_blog
 
 def give_layouts():
-    print("give layouts in _posts")
+    print("giving layouts in _posts...")
     tags = ["s", "sbahj", "trickster", "x2combo"]
     layoutname = ["post_s", "post_sbahj", "post_trickster", "post_x2combo"]
     for filename in POST_LIST :
@@ -104,7 +118,7 @@ def escape_markdowns():
         io.open(POSTPATH+filename, 'w', encoding='utf-8', newline='\n').write(yml_string+story_string) 
 
 def replace_strings():
-    print("replacing strings and links")
+    print("replacing strings and links...")
     for filename in POST_LIST:
         file_string = io.open(POSTPATH+filename, encoding='utf-8').read()
         
@@ -130,7 +144,7 @@ def replace_strings():
 
 if __name__ == "__main__":
     print("pre-processing...")
-    make_raw_blog()
+    make_plain_blog()
     give_layouts()
     escape_markdowns()
     replace_strings()

@@ -2,7 +2,7 @@
 ruby -r rubygems -e 'require "jekyll-import";JekyllImport::Importers::Blogger.run({"source"=>"./blog.xml","no-blogger-info"=>true,"replace-internal-link"=>false})'
 
 python3 ./scripts/preprocess.py
-cp blog-raw.txt ../zhhomestuck.github.io/backups/blog-raw.txt
+cp blog-plain.txt ../zhhomestuck.github.io/backups/blog-plain.txt
 cp blog.xml ../zhhomestuck.github.io/backups/blog.xml
 
 bundle exec jekyll build
@@ -22,5 +22,4 @@ mv ./404.html ..
 
 cd ../../zhhomestuck-jekyll-tools
 echo "finished updating site"
-
 
