@@ -96,8 +96,8 @@ def give_layouts():
                         suffix = "_left"
                     else:
                         suffix = "_right"
-                file_string = re.sub("layout: \w+\n", "layout: "+layoutname[index]+suffix+"\n", file_string)
-                io.open(POSTPATH+filename, 'w', encoding='utf-8-sig', newline='\n').write(file_string)
+                file_string = re.sub("layout: post\n", "layout: "+layoutname[index]+suffix+"\n", file_string)
+                io.open(POSTPATH+filename, 'w', encoding='utf-8', newline='\n').write(file_string)
 
 def escape_markdowns():       
     print("escape markdowns...")
