@@ -20,11 +20,11 @@
           </div>
           <div class="pagefoot">
             {% if page.next.url %}
-              <span style="float: left;">&gt;&nbsp;</span><a id="blog-pager-newer-link-id" class="blog-pager-newer-link" href=".{{ page.next.url}}"> {{ page.next.title }}</a>
+              <span style="float: left;">&gt;&nbsp;</span><a id="newer-page-link" href=".{{ page.next.url}}"> {{ page.next.title }}</a>
             {% endif %}
-            <div id="pff" class="pagefooter-footer">
+            <div id="pagefooter-option">
               {% if page.previous.url %}
-                <a id="blog-pager-older-link" class="blog-pager-older-link" href=".{{ page.previous.url }}">上一頁</a>
+                <a id="older-page-link" class="blog-pager-older-link" href=".{{ page.previous.url }}">上一頁</a>
               {% endif %}
                 |
                 <a id="official-link" href="#">官方原文</a>
