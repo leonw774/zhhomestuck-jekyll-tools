@@ -8,6 +8,17 @@ POST_LIST = list(os.listdir(POSTPATH))
 PAGE_LIST = list(os.listdir(PAGEPATH))
 COMBINED_FILEPATH_LIST = [POSTPATH+n for n in sorted(POST_LIST)] + [PAGEPATH+n for n in sorted(PAGE_LIST)]
 
+def index_check():
+    print("checking continuity of p-values of post...")
+    # check if the p value is right
+    pre_p = 0
+    cur_p = 0
+    for pname in POST_LIST:
+        cur_p = int(pname[11:17])
+        if pre_p != 0 and cur_p != pre_p + 1:
+            print("p value error at", pname)
+        pre_p = cur_p
+    
 def strip_xml_tag(string):
     string += "\n"
     string = re.sub(r"(<br>)|(<br/>)|(<br />)|(</br>)", "\n", string)
@@ -132,7 +143,7 @@ def replace_strings():
         file_string = file_string.replace("http://zhhomestuck.github.io", "https://zhhomestuck.github.io")
         
         # change mpsa link to homestuck.com
-        file_string = file_string.replace("http://cdn.mspaintadventures.com/storyfiles/hs2/", "https://www.homestuck.com/images/storyfiles/hs2/")
+        file_string = re.sub("https?://(cdn|www).mspaintadventures.com/storyfiles/hs2/", "https://www.homestuck.com/images/storyfiles/hs2/", file_string)
         
         # redirect mpsa AC.js to our own
         file_string = re.sub(r"http.+AC_RunActiveContent\.js\"", "../AC_RunActiveContent.js\"", file_string)
@@ -144,6 +155,7 @@ def replace_strings():
 
 if __name__ == "__main__":
     print("pre-processing...")
+    index_check()
     make_plain_blog()
     give_layouts()
     escape_markdowns()
