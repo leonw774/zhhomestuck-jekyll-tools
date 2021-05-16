@@ -95,20 +95,20 @@ def give_layouts():
     print("giving layouts in _posts...")
     tags = ["s", "sbahj", "trickster", "x2combo"]
     layoutname = ["post_s", "post_sbahj", "post_trickster", "post_x2combo"]
-    for filename in POST_LIST :
-        file_string = io.open(POSTPATH+filename, "r", encoding = 'utf-8').read()
+    for postname in POST_LIST :
+        file_string = io.open(POSTPATH+postname, "r", encoding = 'utf-8').read()
         #if re.search("- sbahj", file_string) :
         #    continue
         for index, tag in enumerate(tags) :
             if re.search("- "+tag+"\n", file_string):
                 suffix = ""
                 if tag == "x2combo":
-                    if int(filename[11:17]) % 2 == 0:
+                    if int(postname[11:17]) % 2 == 0:
                         suffix = "_left"
                     else:
                         suffix = "_right"
                 file_string = re.sub("layout: post\n", "layout: "+layoutname[index]+suffix+"\n", file_string)
-                io.open(POSTPATH+filename, 'w', encoding='utf-8', newline='\n').write(file_string)
+                io.open(POSTPATH+postname, 'w', encoding='utf-8', newline='\n').write(file_string)
 
 def escape_markdowns():       
     print("escape markdowns...")
@@ -145,11 +145,18 @@ def replace_strings():
         # change mpsa link to homestuck.com
         file_string = re.sub("https?://(cdn|www).mspaintadventures.com/storyfiles/hs2/", "https://www.homestuck.com/images/storyfiles/hs2/", file_string)
         
-        # redirect mpsa AC.js to our own
-        file_string = re.sub(r"http.+AC_RunActiveContent\.js\"", "../AC_RunActiveContent.js\"", file_string)
+        # unlink mpsa AC.js
+        file_string = re.sub(r"<[=\"a-z ]*src=\"http.+AC_RunActiveContent\.js\"[=\"a-z ]*><\/script>", "", file_string)
         
         # redirect site name
         file_string = re.sub(r"https?://zhhomestuck.blogspot.(tw|com)/(p|[/0-9]{7})/", "./", file_string)
+        
+        # replace unnessecery strings
+        file_string = file_string.replace("//end AC code", "")
+        
+        # replace wrongly used id attr
+        file_string = file_string.replace('span id="note"', 'span class="note"')
+        file_string = file_string.replace('id="log-outer-outer"', 'class="log-outer-outer"')
         
         io.open(POSTPATH+filename, "w", encoding='utf-8', newline='\n').write(file_string)
 

@@ -1,5 +1,6 @@
 source:        .
 destination:   ../zhhomestuck.github.io/p
+permalink:     /:title.html
 
 safe:          true
 encoding:      UTF-8
@@ -7,11 +8,12 @@ exclude:       ["Gemfile*", "README*", "LICENSE*", "*.bat", "*.sh", "*.csv", "*.
 markdown_ext:  "html"
 
 plugins:       [jekyll-paginate]
-
-permalink:     /:title.html
 paginate:      1
 
 collections:
   pages:
     output: true
     permalink: /:title.html
+  tmps:
+    output: true
+    # permalink: /tmps/:title.html # should be in this path

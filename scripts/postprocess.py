@@ -7,18 +7,15 @@ POST_LIST = list(os.listdir(POSTPATH))
 def replace_strings():
     print("replacing things in builded pages")
     for filename in POST_LIST:
-        file_string = open(POSTPATH+filename, encoding = 'utf-8-sig').read()
+        try:
+            file_string = open(POSTPATH+filename, encoding = 'utf-8-sig').read()
+        except: continue
         file_string = re.sub(r"&lt;(?![! ])", "<", file_string) # change every "&lt;" if it is NOT behind "!" or " "
         file_string = re.sub(r"&gt;(?![!;])", ">", file_string) # change every "&gt;" if it is NOT behind "!" or ";"
         file_string = file_string.replace(".html", "") # take out file extention
         file_string = file_string.replace("&amp;", "&")
-        file_string = file_string.replace("//end AC code", "")
         file_string = file_string.replace("…", "...")
-        # replace wrongly used id attr
-        file_string = file_string.replace("span id=\"note\"", "span class=\"note\"")
-        file_string = file_string.replace("id=\"log-outer-outer\"", "class=\"log-outer-outer\"")
         open(POSTPATH+filename, "w", encoding = 'utf-8-sig').write(file_string)
-   
 
 if __name__ == "__main__":
     print("post-processing...")

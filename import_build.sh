@@ -11,15 +11,7 @@ python3 ./scripts/postprocess.py
 python3 ./scripts/index_updater.py
 python3 ./scripts/write_flash_index.py
 
-cd ../zhhomestuck.github.io/p
+mv ../zhhomestuck.github.io/p/tmps/* ../zhhomestuck.github.io
 
-mv ./copyright.html ..
-mv ./translators.html ..
-mv ./whatishomestuck.html ..
-mv ./whatishomestuck-old.html ..
-mv ./index.html ..
-mv ./404.html ..
-
-cd ../../zhhomestuck-jekyll-tools
 echo "finished updating site"
 
