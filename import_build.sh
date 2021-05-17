@@ -12,6 +12,8 @@ python3 ./scripts/index_updater.py
 python3 ./scripts/write_flash_index.py
 
 mv ../zhhomestuck.github.io/p/tmps/* ../zhhomestuck.github.io
+mv ../zhhomestuck.github.io/p/index.html ../zhhomestuck.github.io/
+mv ../zhhomestuck.github.io/p/404.html ../zhhomestuck.github.io/
 
 echo "finished updating site"
 

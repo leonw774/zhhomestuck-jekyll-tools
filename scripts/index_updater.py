@@ -2,10 +2,10 @@ import os
 from datetime import datetime
 print("updating index.html...")
 try:
-    file_path = "../zhhomestuck.github.io/p/tmps/index.html"
+    file_path = "../zhhomestuck.github.io/p/index.html"
     file = open(file_path, "r", encoding = "utf-8-sig")
 except:
-    file_path = "../zhhomestuck.github.io/p/index.html"
+    file_path = "../zhhomestuck.github.io/index.html"
     file = open(file_path, "r", encoding = "utf-8-sig")
 
 file_content = file.read()
